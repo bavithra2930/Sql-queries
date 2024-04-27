@@ -59,3 +59,18 @@ Below approach is grouping,counting emails in the table and checking or fliterin
 
 select email from person group by email 
 having count(email)>=2
+
+
+𝐖𝐫𝐢𝐭𝐞 𝐚 𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧 𝐭𝐨 𝐝𝐞𝐥𝐞𝐭𝐞 𝐚𝐥𝐥 𝐝𝐮𝐩𝐥𝐢𝐜𝐚𝐭𝐞 𝐞𝐦𝐚𝐢𝐥𝐬, 𝐤𝐞𝐞𝐩𝐢𝐧𝐠 𝐨𝐧𝐥𝐲 𝐨𝐧𝐞 𝐮𝐧𝐢𝐪𝐮𝐞 𝐞𝐦𝐚𝐢𝐥 𝐰𝐢𝐭𝐡 𝐭𝐡𝐞 𝐬𝐦𝐚𝐥𝐥𝐞𝐬𝐭 𝐢𝐝.
+
+For SQL users, please note that you are supposed to write a DELETE statement and not a SELECT one.
+
+For Pandas users, please note that you are supposed to modify Person in place.
+
+After running your script, the answer shown is the Person table. The driver will first compile and run your piece of code and then show the Person table. The final order of the Person table does not matter.
+
+delete p1 from person p1 join person p2 
+where p1.email=p2.email and p1.id>p2.id
+or
+delete p1 from person p1, person p2 
+where p1.email=p2.email and p1.id>p2.id
