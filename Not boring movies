@@ -45,6 +45,10 @@ Explanation:
 We have three movies with odd-numbered IDs: 1, 3, and 5. The movie with ID = 3 is boring so we do not include it in the answer.
 
 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧
+simple solutionL
+select * from cinema where description <> "boring" and id%2<>0
+order by rating desc
+
 Using cte:
 with cte as(select id,movie,description,rating,
 case
